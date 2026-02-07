@@ -1,0 +1,89 @@
+.dish-card {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.dish-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  border-color: #8B0000;
+}
+
+.dish-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.dish-name {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.dish-emoji {
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.rating-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.stars {
+  font-size: 1.1rem;
+}
+
+.rating-number {
+  font-weight: bold;
+  color: #8B0000;
+  font-size: 1rem;
+}
+
+.allergen-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.allergen-tag {
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  border: 1px solid #ffeaa7;
+}
+
+.local-badge {
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+

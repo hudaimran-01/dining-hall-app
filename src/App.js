@@ -1,32 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
 import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+import RatingsPage from './pages/RatingsPage';
+import './App.css';
 
-// Placeholder pages
-const MenuPage = () => <div style={{padding: '20px'}}><h1>Menu Page - Coming Soon</h1></div>;
-const RatingsPage = () => <div style={{padding: '20px'}}><h1>Ratings Page - Coming Soon</h1></div>;
-const VolunteerPage = () => <div style={{padding: '20px'}}><h1>Volunteer Page - Coming Soon</h1></div>;
-const AdminPage = () => <div style={{padding: '20px'}}><h1>Admin Dashboard - Coming Soon</h1></div>;
+const VolunteerPage = () => (
+  <div style={{ padding: '20px' }}>
+    <h1>Volunteer Page - Coming Soon</h1>
+  </div>
+);
+
+const AdminPage = () => (
+  <div style={{ padding: '20px' }}>
+    <h1>Admin Dashboard - Coming Soon</h1>
+  </div>
+);
 
 function App() {
   return (
     <Router>
-      <div>
-        {/* Navigation */}
-        <nav style={{
-          background: '#333',
-          padding: '15px',
-          color: 'white'
-        }}>
-          <Link to="/" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Home</Link>
-          <Link to="/menu" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Menu</Link>
-          <Link to="/ratings" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Ratings</Link>
-          <Link to="/volunteer" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Volunteer</Link>
-          <Link to="/admin" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Admin</Link>
-        </nav>
-
-        {/* Routes */}
+      <div className="App">
+        <Header />
         <Routes>
+	  <Route path="/menu" element={<MenuPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/menu" element={<MenuPage />} />
           <Route path="/ratings" element={<RatingsPage />} />
@@ -39,3 +37,4 @@ function App() {
 }
 
 export default App;
+
