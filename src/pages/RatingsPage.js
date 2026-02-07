@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { addRating, getTopRatedDishes, getAllRatings } from '../services/ratingsService';
 import { getCurrentUser } from '../services/authService';
-import { mockMenuItems } from '../mockData';
 import './RatingsPage.css';
 
 function RatingsPage() {
-  const [selectedDish, setSelectedDish] = useState('');
+  const [dishName, setDishName] = useState('');
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [topDishes, setTopDishes] = useState([]);
@@ -19,16 +18,10 @@ function RatingsPage() {
   }, []);
 
   const loadRatings = async () => {
+    const top = await getTopRatedDishes(5);
     const allRatings = await getAllRatings();
     
-    if (allRatings.length === 0) {
-      // No ratings yet - show empty state
-      setTopDishes([]);
-      setWorstDishes([]);
-      return;
-    }
-
-    // Calculate average ratings per dish
+    // Calculate worst dishes
     const dishMap = {};
     allRatings.forEach(r => {
       if (!dishMap[r.dishName]) {
@@ -39,26 +32,14 @@ function RatingsPage() {
       dishMap[r.dishName].count++;
     });
 
-    // Convert to array with averages
-    const dishesWithRatings = Object.keys(dishMap)
+    const worst = Object.keys(dishMap)
       .map(name => ({
         dishName: name,
-        averageRating: parseFloat((dishMap[name].total / dishMap[name].count).toFixed(1)),
+        averageRating: (dishMap[name].total / dishMap[name].count).toFixed(1),
         totalRatings: dishMap[name].count
       }))
-      .filter(dish => dish.totalRatings >= 3); // Only show dishes with at least 3 ratings
-
-    // Sort by rating
-    const sorted = [...dishesWithRatings].sort((a, b) => b.averageRating - a.averageRating);
-    
-    // Top 5 dishes (highest rated)
-    const top = sorted.slice(0, 5);
-    
-    // Worst 5 dishes (lowest rated, but only if rating < 4.0)
-    const worst = sorted
-      .filter(dish => dish.averageRating < 4.0)
-      .slice(-5)
-      .reverse();
+      .sort((a, b) => a.averageRating - b.averageRating)
+      .slice(0, 5);
 
     setTopDishes(top);
     setWorstDishes(worst);
@@ -67,8 +48,8 @@ function RatingsPage() {
   const handleSubmitRating = async (e) => {
     e.preventDefault();
     
-    if (!selectedDish) {
-      setMessage('❌ Please select a dish!');
+    if (!dishName.trim()) {
+      setMessage('❌ Please enter a dish name!');
       return;
     }
     
@@ -79,7 +60,7 @@ function RatingsPage() {
 
     const user = getCurrentUser();
     const result = await addRating(
-      selectedDish,
+      dishName,
       rating,
       user?.uid || 'anonymous',
       user?.displayName || 'Anonymous Student'
@@ -89,7 +70,7 @@ function RatingsPage() {
       setMessage('✅ Rating submitted! Thanks for your feedback!');
       setShowConfetti(true);
       setTimeout(() => setShowConfetti(false), 3000);
-      setSelectedDish('');
+      setDishName('');
       setRating(0);
       loadRatings();
     } else {
@@ -117,9 +98,6 @@ function RatingsPage() {
     ));
   };
 
-  // Get unique dish names from mock data
-  const availableDishes = [...new Set(mockMenuItems.map(item => item.dishName))].sort();
-
   return (
     <div className="ratings-page">
       {showConfetti && <div className="confetti">🎉🎊✨🌟💫</div>}
@@ -137,19 +115,14 @@ function RatingsPage() {
             <h2>🍴 Rate a Dish</h2>
             <form onSubmit={handleSubmitRating}>
               <div className="form-group">
-                <label>Select Dish</label>
-                <select
-                  value={selectedDish}
-                  onChange={(e) => setSelectedDish(e.target.value)}
-                  className="dish-select"
-                >
-                  <option value="">-- Choose a dish --</option>
-                  {availableDishes.map((dish, index) => (
-                    <option key={index} value={dish}>
-                      {dish}
-                    </option>
-                  ))}
-                </select>
+                <label>Dish Name</label>
+                <input
+                  type="text"
+                  value={dishName}
+                  onChange={(e) => setDishName(e.target.value)}
+                  placeholder="e.g., Pizza Station, Stir Fry Bar"
+                  className="dish-input"
+                />
               </div>
 
               <div className="form-group">
@@ -211,49 +184,43 @@ function RatingsPage() {
         {/* Top Rated Dishes */}
         <section className="top-dishes-section">
           <h2>⭐ Top Rated Dishes</h2>
-          {topDishes.length === 0 ? (
-            <p className="no-data">No ratings yet! Be the first to rate a dish.</p>
-          ) : (
-            <div className="dishes-grid">
-              {topDishes.map((dish, index) => (
-                <div key={index} className="dish-rank-card top">
-                  <div className="rank-badge">{index + 1}</div>
-                  <div className="dish-info">
-                    <h3>{dish.dishName}</h3>
-                    <div className="dish-rating">
-                      {renderStars(Math.round(dish.averageRating))}
-                      <span className="rating-num">{dish.averageRating}/5</span>
-                    </div>
-                    <p className="rating-count">{dish.totalRatings} ratings</p>
+          <div className="dishes-grid">
+            {topDishes.map((dish, index) => (
+              <div key={index} className="dish-rank-card top">
+                <div className="rank-badge">{index + 1}</div>
+                <div className="dish-info">
+                  <h3>{dish.dishName}</h3>
+                  <div className="dish-rating">
+                    {renderStars(Math.round(dish.averageRating))}
+                    <span className="rating-num">{dish.averageRating}/5</span>
                   </div>
+                  <p className="rating-count">{dish.totalRatings} ratings</p>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Worst Rated Dishes (with humor) */}
-        {worstDishes.length > 0 && (
-          <section className="worst-dishes-section">
-            <h2>😬 Hall of Shame</h2>
-            <p className="shame-subtitle">Proceed with caution...</p>
-            <div className="dishes-grid">
-              {worstDishes.map((dish, index) => (
-                <div key={index} className="dish-rank-card worst">
-                  <div className="rank-badge danger">{index + 1}</div>
-                  <div className="dish-info">
-                    <h3>{dish.dishName}</h3>
-                    <div className="dish-rating">
-                      {renderStars(Math.round(dish.averageRating))}
-                      <span className="rating-num">{dish.averageRating}/5</span>
-                    </div>
-                    <p className="rating-count">{dish.totalRatings} brave souls tried this</p>
+        <section className="worst-dishes-section">
+          <h2>😬 Hall of Shame</h2>
+          <p className="shame-subtitle">Proceed with caution...</p>
+          <div className="dishes-grid">
+            {worstDishes.map((dish, index) => (
+              <div key={index} className="dish-rank-card worst">
+                <div className="rank-badge danger">{index + 1}</div>
+                <div className="dish-info">
+                  <h3>{dish.dishName}</h3>
+                  <div className="dish-rating">
+                    {renderStars(Math.round(dish.averageRating))}
+                    <span className="rating-num">{dish.averageRating}/5</span>
                   </div>
+                  <p className="rating-count">{dish.totalRatings} brave souls tried this</p>
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
+              </div>
+            ))}
+          </div>
+        </section>
 
       </div>
     </div>
