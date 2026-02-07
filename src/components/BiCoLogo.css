@@ -1,0 +1,78 @@
+.bico-logo {
+  display: inline-block;
+}
+
+.logo-shield {
+  background: white;
+  border: 3px solid #2c3e50;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.bico-logo.small .logo-shield {
+  width: 60px;
+}
+
+.bico-logo.medium .logo-shield {
+  width: 120px;
+}
+
+.bico-logo.large .logo-shield {
+  width: 180px;
+}
+
+.shield-top {
+  display: flex;
+}
+
+.shield-section {
+  flex: 1;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: white;
+}
+
+.shield-section.haverford {
+  background: linear-gradient(135deg, #8B0000, #DC143C);
+}
+
+.shield-section.bryn-mawr {
+  background: linear-gradient(135deg, #003C71, #0066CC);
+}
+
+.bico-logo.small .shield-letter {
+  font-size: 1.5rem;
+}
+
+.bico-logo.medium .shield-letter {
+  font-size: 3rem;
+}
+
+.bico-logo.large .shield-letter {
+  font-size: 4.5rem;
+}
+
+.shield-bottom {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 0.3rem;
+  font-weight: 600;
+  font-family: 'Georgia', serif;
+}
+
+.bico-logo.small .shield-text {
+  font-size: 0.5rem;
+}
+
+.bico-logo.medium .shield-text {
+  font-size: 0.9rem;
+}
+
+.bico-logo.large .shield-text {
+  font-size: 1.2rem;
+}

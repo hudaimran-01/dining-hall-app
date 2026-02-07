@@ -18,32 +18,40 @@ function RatingsPage() {
   }, []);
 
   const loadRatings = async () => {
-    const top = await getTopRatedDishes(5);
-    const allRatings = await getAllRatings();
-    
-    // Calculate worst dishes
-    const dishMap = {};
-    allRatings.forEach(r => {
-      if (!dishMap[r.dishName]) {
-        dishMap[r.dishName] = { ratings: [], total: 0, count: 0 };
-      }
-      dishMap[r.dishName].ratings.push(r.rating);
-      dishMap[r.dishName].total += r.rating;
-      dishMap[r.dishName].count++;
-    });
+  const allRatings = await getAllRatings();
+  
+  // Calculate dish averages
+  const dishMap = {};
+  allRatings.forEach(r => {
+    if (!dishMap[r.dishName]) {
+      dishMap[r.dishName] = { ratings: [], total: 0, count: 0 };
+    }
+    dishMap[r.dishName].ratings.push(r.rating);
+    dishMap[r.dishName].total += r.rating;
+    dishMap[r.dishName].count++;
+  });
 
-    const worst = Object.keys(dishMap)
-      .map(name => ({
-        dishName: name,
-        averageRating: (dishMap[name].total / dishMap[name].count).toFixed(1),
-        totalRatings: dishMap[name].count
-      }))
-      .sort((a, b) => a.averageRating - b.averageRating)
-      .slice(0, 5);
+  const allDishes = Object.keys(dishMap).map(name => ({
+    dishName: name,
+    averageRating: parseFloat((dishMap[name].total / dishMap[name].count).toFixed(1)),
+    totalRatings: dishMap[name].count
+  }));
 
-    setTopDishes(top);
-    setWorstDishes(worst);
-  };
+  // Top dishes: 4+ stars only
+  const top = allDishes
+    .filter(dish => dish.averageRating >= 4.0)
+    .sort((a, b) => b.averageRating - a.averageRating)
+    .slice(0, 5);
+
+  // Worst dishes: below 3 stars only
+  const worst = allDishes
+    .filter(dish => dish.averageRating < 3.0)
+    .sort((a, b) => a.averageRating - b.averageRating)
+    .slice(0, 5);
+
+  setTopDishes(top);
+  setWorstDishes(worst);
+};
 
   const handleSubmitRating = async (e) => {
     e.preventDefault();
