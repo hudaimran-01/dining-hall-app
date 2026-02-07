@@ -1,31 +1,40 @@
-import { db } from './firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+
+// Placeholder pages
+const MenuPage = () => <div style={{padding: '20px'}}><h1>Menu Page - Coming Soon</h1></div>;
+const RatingsPage = () => <div style={{padding: '20px'}}><h1>Ratings Page - Coming Soon</h1></div>;
+const VolunteerPage = () => <div style={{padding: '20px'}}><h1>Volunteer Page - Coming Soon</h1></div>;
+const AdminPage = () => <div style={{padding: '20px'}}><h1>Admin Dashboard - Coming Soon</h1></div>;
 
 function App() {
-  
-  const testFirebase = async () => {
-    try {
-      await addDoc(collection(db, 'test'), {
-        message: "Firebase is working!",
-        timestamp: new Date()
-      });
-      alert("Success! Check your Firebase Console → Firestore Database");
-    } catch (error) {
-      alert("Error: " + error.message);
-    }
-  };
-
   return (
-    <div style={{ padding: '50px' }}>
-      <h1>Dining Hall App</h1>
-      <button onClick={testFirebase} style={{ 
-        padding: '10px 20px', 
-        fontSize: '16px',
-        cursor: 'pointer'
-      }}>
-        Test Firebase Connection
-      </button>
-    </div>
+    <Router>
+      <div>
+        {/* Navigation */}
+        <nav style={{
+          background: '#333',
+          padding: '15px',
+          color: 'white'
+        }}>
+          <Link to="/" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Home</Link>
+          <Link to="/menu" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Menu</Link>
+          <Link to="/ratings" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Ratings</Link>
+          <Link to="/volunteer" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Volunteer</Link>
+          <Link to="/admin" style={{ color: 'white', margin: '0 15px', textDecoration: 'none' }}>Admin</Link>
+        </nav>
+
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/ratings" element={<RatingsPage />} />
+          <Route path="/volunteer" element={<VolunteerPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
