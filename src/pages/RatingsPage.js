@@ -233,6 +233,8 @@ function RatingsPage() {
       </div>
     </div>
   );
+
+
 }
 
 export default RatingsPage;

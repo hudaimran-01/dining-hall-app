@@ -1,12 +1,14 @@
-
+/* Header Styles */
 .header {
-  background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background-color: #8B2E2E; /* deep dark red */
+  color: #f3dbb9; /* beige text for contrast */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+/* Container inside header */
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -16,19 +18,20 @@
   align-items: center;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: white;
+  color: #f3dbb9; /* beige logo text */
   transition: transform 0.2s;
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .logo-text {
@@ -36,24 +39,25 @@
   letter-spacing: 1px;
 }
 
+/* Navigation */
 .nav {
   display: flex;
   gap: 2rem;
 }
 
 .nav-link {
-  color: white;
+  color: #f3dbb9;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 10px;
   transition: all 0.3s;
   position: relative;
 }
 
 .nav-link:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15); /* subtle highlight */
+  transform: translateY(-2px) scale(1.03);
 }
 
 .nav-link::after {
@@ -63,7 +67,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: white;
+  background: #f3dbb9;
   transition: all 0.3s;
   transform: translateX(-50%);
 }
@@ -72,21 +76,29 @@
   width: 80%;
 }
 
+/* Profile Icon */
 .profile-icon {
-  background: white;
-  color: #8B0000;
-  width: 40px;
-  height: 40px;
+  background: #f3dbb9; /* beige circle */
+  color: #8B2E2E; /* dark red icon */
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .profile-icon:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: scale(1.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Body / Website Background */
+body {
+  background-color: #f3dbb9; /* beige background for website */
+  margin: 0;
+  font-family: 'Arial', sans-serif;
 }
