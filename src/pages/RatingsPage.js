@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { addRating, getTopRatedDishes, getAllRatings } from '../services/ratingsService';
+import { addRating, getAllRatings } from '../services/ratingsService';
 import { getCurrentUser } from '../services/authService';
 import './RatingsPage.css';
 
