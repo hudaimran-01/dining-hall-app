@@ -309,3 +309,30 @@
   color: #7f8c8d;
   margin: 0;
 }
+
+.dish-select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.dish-select:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.dish-select:hover {
+  border-color: #999;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
