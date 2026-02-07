@@ -9,7 +9,7 @@ export const mockMenuItems = [
     allergens: ["gluten"],
     mealType: "lunch",
     location: "New Dorm",
-    photo: "https://source.unsplash.com/400x300/?meatballs",
+    photo: "https://plus.unsplash.com/premium_photo-1712598971951-0169ec4e7037?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: true,
     description: "Homemade meatballs baked to perfection"
   },
@@ -20,7 +20,7 @@ export const mockMenuItems = [
     allergens: ["soy"],
     mealType: "lunch",
     location: "New Dorm",
-    photo: "https://source.unsplash.com/400x300/?vegan,meatballs",
+    photo: "https://plus.unsplash.com/premium_photo-1712428783686-c00f5c3a6c4b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: true,
     isVegan: true,
     description: "Plant-based meatballs in rich sauce"
@@ -32,7 +32,7 @@ export const mockMenuItems = [
     allergens: ["gluten", "dairy"],
     mealType: "lunch",
     location: "New Dorm",
-    photo: "https://source.unsplash.com/400x300/?pierogi",
+    photo: "https://images.unsplash.com/photo-1581515092908-42bae9a80350?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: false,
     description: "Classic pierogi topped with sweet onions"
   },
@@ -43,7 +43,7 @@ export const mockMenuItems = [
     allergens: ["fish", "dairy"],
     mealType: "dinner",
     location: "New Dorm",
-    photo: "https://source.unsplash.com/400x300/?salmon,soup",
+    photo: "https://plus.unsplash.com/premium_photo-1664391935474-f1e502d3ad61?q=80&w=1055&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: true,
     description: "Creamy chowder with wild rice and salmon"
   },
@@ -54,7 +54,7 @@ export const mockMenuItems = [
     allergens: ["gluten", "dairy", "eggs"],
     mealType: "dinner",
     location: "New Dorm",
-    photo: "https://source.unsplash.com/400x300/?lemon,cake",
+    photo: "https://images.unsplash.com/photo-1654546518361-eef83e447521?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: false,
     description: "Light and refreshing lemon dessert"
   },
@@ -67,7 +67,7 @@ export const mockMenuItems = [
     allergens: ["gluten"],
     mealType: "lunch",
     location: "Erdman",
-    photo: "https://source.unsplash.com/400x300/?chicken,noodle,soup",
+    photo: "https://plus.unsplash.com/premium_photo-1675707499311-726434ce10fc?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: true,
     description: "Classic comfort soup"
   },
@@ -78,7 +78,7 @@ export const mockMenuItems = [
     allergens: ["gluten", "dairy", "tree nuts"],
     mealType: "lunch",
     location: "Erdman",
-    photo: "https://source.unsplash.com/400x300/?pesto,pasta",
+    photo: "https://stephaniemormina.com/wp-content/uploads/2024/01/IMG_2808-edited-1.jpeg",
     isLocal: true,
     description: "Fresh pesto pasta with seasonal vegetables"
   },
@@ -89,7 +89,7 @@ export const mockMenuItems = [
     allergens: [],
     mealType: "lunch",
     location: "Erdman",
-    photo: "https://source.unsplash.com/400x300/?sweet,potato,fries",
+    photo: "https://images.unsplash.com/photo-1725006015031-04bf253ae9f7?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLocal: true,
     isVegan: true,
     description: "Crispy oven-baked fries"
@@ -101,7 +101,7 @@ export const mockMenuItems = [
     allergens: ["gluten", "dairy"],
     mealType: "dinner",
     location: "Erdman",
-    photo: "https://source.unsplash.com/400x300/?baked,ziti",
+    photo: "https://grandbaby-cakes.com/wp-content/uploads/2021/03/Baked-Ziti14-scaled.jpg",
     isLocal: false,
     description: "Creamy baked pasta with four cheeses"
   },
@@ -112,7 +112,7 @@ export const mockMenuItems = [
     allergens: ["gluten", "dairy", "eggs"],
     mealType: "dinner",
     location: "Erdman",
-    photo: "https://source.unsplash.com/400x300/?cannoli",
+    photo: "https://www.recipetineats.com/tachyon/2017/09/Spinach-Ricotta-Cannelloni-1-copy-1.jpg",
     isLocal: false,
     description: "Traditional Italian dessert"
   },
@@ -125,7 +125,7 @@ export const mockMenuItems = [
     allergens: ["gluten"],
     mealType: "dinner",
     location: "Haverford Dining Center",
-    photo: "https://source.unsplash.com/400x300/?gyro",
+    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj8NPXARvgCLjqAtbZJByMOzUhMMXFljwUWA&s",
     isLocal: true,
     description: "Mediterranean gyro with seasoned meat"
   },
@@ -136,7 +136,7 @@ export const mockMenuItems = [
     allergens: [],
     mealType: "dinner",
     location: "Haverford Dining Center",
-    photo: "https://source.unsplash.com/400x300/?eggplant,mediterranean",
+    photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOQzoDklbqAnqAyUVsUqn_6_69ZihuXL5PiQ&s",
     isLocal: true,
     isVegan: true,
     description: "Roasted eggplant with Turkish spices"
@@ -148,7 +148,7 @@ export const mockMenuItems = [
     allergens: ["sesame"],
     mealType: "lunch",
     location: "Haverford Dining Center",
-    photo: "https://source.unsplash.com/400x300/?falafel,bowl",
+    photo: "https://cool-simple.com/cdn/shop/articles/Bol_falafels_a18c8367-1a60-4132-8e78-0f8a3f363288.jpg?v=1748288794",
     isLocal: true,
     isVegan: true,
     description: "Falafel with hummus and fresh veggies"
