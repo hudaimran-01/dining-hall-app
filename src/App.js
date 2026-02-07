@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
 import RatingsPage from './pages/RatingsPage';
+import MenuPage from './pages/MenuPage';
 import './App.css';
 
 function App() {
@@ -13,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/ratings" element={<RatingsPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/menu" element={<MenuPage />} />  {/* <-- ADD THIS */}
         </Routes>
       </div>
     </Router>
