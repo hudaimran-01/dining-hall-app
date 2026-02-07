@@ -1,4 +1,3 @@
-// src/pages/VolunteerPage.js
 import React, { useState } from 'react';
 
 function VolunteerPage() {
@@ -20,7 +19,7 @@ function VolunteerPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     const newVolunteer = {
       id: volunteers.length + 1,
       name: formData.name,
@@ -28,11 +27,11 @@ function VolunteerPage() {
       time: formData.time,
       status: 'pending'
     };
-    
+
     setVolunteers([...volunteers, newVolunteer]);
-    
+
     alert(`Thanks ${formData.name}! Your volunteer slot is confirmed for ${formData.date} at ${formData.time}. We'll send confirmation to ${formData.email}`);
-    
+
     // Reset form
     setFormData({ name: '', email: '', date: '', time: '', phone: '' });
     setShowForm(false);
@@ -57,19 +56,19 @@ function VolunteerPage() {
           <p style={statNumber}>1,247</p>
           <p>This semester</p>
         </div>
-        
+
         <div style={statCard}>
           <h3>👥 Active Volunteers</h3>
           <p style={statNumber}>42</p>
           <p>Students helping</p>
         </div>
-        
+
         <div style={statCard}>
           <h3>🏠 Partner Shelters</h3>
           <p style={statNumber}>5</p>
           <p>Local organizations</p>
         </div>
-        
+
         <div style={statCard}>
           <h3>♻️ Food Saved</h3>
           <p style={statNumber}>850 kg</p>
@@ -85,17 +84,17 @@ function VolunteerPage() {
             <h3>1️⃣ Sign Up</h3>
             <p>Choose a delivery time slot that works for you</p>
           </div>
-          
+
           <div style={stepCard}>
             <h3>2️⃣ Pick Up Food</h3>
             <p>Collect surplus meals from dining hall (5-10 min)</p>
           </div>
-          
+
           <div style={stepCard}>
             <h3>3️⃣ Deliver</h3>
             <p>Drop off at nearby shelter (locations provided)</p>
           </div>
-          
+
           <div style={stepCard}>
             <h3>4️⃣ Make Impact</h3>
             <p>Help feed those in need & reduce waste!</p>
@@ -116,7 +115,7 @@ function VolunteerPage() {
         {showForm && (
           <form onSubmit={handleSubmit} style={formStyle}>
             <h3>Volunteer Sign-Up Form</h3>
-            
+
             <input
               type="text"
               name="name"
@@ -126,7 +125,7 @@ function VolunteerPage() {
               required
               style={inputStyle}
             />
-            
+
             <input
               type="email"
               name="email"
@@ -136,7 +135,7 @@ function VolunteerPage() {
               required
               style={inputStyle}
             />
-            
+
             <input
               type="tel"
               name="phone"
@@ -146,7 +145,7 @@ function VolunteerPage() {
               required
               style={inputStyle}
             />
-            
+
             <input
               type="date"
               name="date"
@@ -156,7 +155,7 @@ function VolunteerPage() {
               style={inputStyle}
               min={new Date().toISOString().split('T')[0]}
             />
-            
+
             <select
               name="time"
               value={formData.time}
@@ -170,7 +169,7 @@ function VolunteerPage() {
               <option value="6:00 PM">6:00 PM - After Dinner</option>
               <option value="7:00 PM">7:00 PM - After Dinner</option>
             </select>
-            
+
             <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
               <button type="submit" style={submitButton}>
                 ✅ Confirm Volunteer Slot
@@ -222,13 +221,13 @@ function VolunteerPage() {
             <p>📍 5 min from Haverford</p>
             <p>Serves 200+ families/week</p>
           </div>
-          
+
           <div style={shelterCard}>
             <h4>Main Line Community Center</h4>
             <p>📍 10 min from Bryn Mawr</p>
             <p>Hot meal program</p>
           </div>
-          
+
           <div style={shelterCard}>
             <h4>St. Mary's Shelter</h4>
             <p>📍 8 min from campus</p>
@@ -240,22 +239,22 @@ function VolunteerPage() {
       {/* FAQ */}
       <div style={faqSection}>
         <h2>❓ Frequently Asked Questions</h2>
-        
+
         <div style={faqItem}>
           <h4>How much time does it take?</h4>
           <p>15-30 minutes total: 5-10 min pickup + 10-20 min delivery</p>
         </div>
-        
+
         <div style={faqItem}>
           <h4>Do I need a car?</h4>
           <p>No! We provide campus vehicles or can arrange carpools</p>
         </div>
-        
+
         <div style={faqItem}>
           <h4>Can I volunteer with friends?</h4>
           <p>Yes! Group deliveries are encouraged</p>
         </div>
-        
+
         <div style={faqItem}>
           <h4>Is training required?</h4>
           <p>Quick 10-minute orientation on your first delivery</p>
@@ -406,15 +405,4 @@ const faqSection = {
   backgroundColor: '#f5f5f5',
   padding: '30px',
   borderRadius: '10px',
-  margin: '30px 0'
-};
 
-const faqItem = {
-  backgroundColor: 'white',
-  padding: '20px',
-  borderRadius: '8px',
-  marginBottom: '15px',
-  border: '1px solid #e0e0e0'
-};
-
-export default VolunteerPage;

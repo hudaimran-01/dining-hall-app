@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BiCoLogo from './BiCoLogo';
 import './Header.css';
 
 function Header() {
@@ -7,7 +8,7 @@ function Header() {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo">
-          🍽️ <span className="logo-text">Bi-Co Bites</span>
+          <BiCoLogo size="small" />
         </Link>
         
         <nav className="nav">
