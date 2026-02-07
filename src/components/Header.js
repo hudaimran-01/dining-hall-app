@@ -7,9 +7,11 @@ function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <Link to="/" className="logo">
-          <BiCoLogo size="small" />
-        </Link>
+        <div className="logo">
+	  <span className="logo-main">BiCo</span>
+	  <span className="logo-sub">Dining</span>
+	  </div>
+
         
         <nav className="nav">
           <Link to="/" className="nav-link">Home</Link>

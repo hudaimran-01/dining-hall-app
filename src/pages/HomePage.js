@@ -1,33 +1,49 @@
-import React from 'react';
-import { mockEvents, mockLineStatus, mockTopDishes } from '../mockData';
+import React from "react";
+import "./HomePage.css";
 
 function HomePage() {
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Dining Hall Dashboard</h1>
+    <div className="home-container">
+      {/* HERO SECTION */}
+      <section className="hero">
+        <div className="hero-overlay">
+          <h1 className="logo-text">BiCo Bites</h1>
+          <p className="tagline">
+            Your live guide to dining at Bryn Mawr & Haverford
+          </p>
+        </div>
+      </section>
 
-      <h2>Line Status</h2>
-      <p>Current line: <strong>{mockLineStatus}</strong></p>
+      {/* MAIN CONTENT */}
+      <div className="content">
+        {/* Line Status Card */}
+        <div className="card">
+          <h2>Line Status</h2>
+          <p className="line-status medium">Medium wait time</p>
+        </div>
 
-      <h2>Top Dishes</h2>
-      <ul>
-        {mockTopDishes.map((dish, index) => (
-          <li key={index}>
-            {dish.dishName} — {dish.avgRating}⭐ ({dish.numRatings} ratings)
-          </li>
-        ))}
-      </ul>
+        {/* Top Dishes Card */}
+        <div className="card">
+          <h2>Top Dishes</h2>
+          <ul className="dish-list">
+            <li>Sweet Potato Fries — ⭐4.9</li>
+            <li>Salmon Chowder — ⭐4.8</li>
+            <li>Cannoli — ⭐4.7</li>
+          </ul>
+        </div>
 
-      <h2>Upcoming Events</h2>
-      <ul>
-        {mockEvents.map(event => (
-          <li key={event.id}>
-            <strong>{event.title}</strong> — {event.date} at {event.location}
-          </li>
-        ))}
-      </ul>
+        {/* Events Card */}
+        <div className="card">
+          <h2>Upcoming Events</h2>
+          <ul className="event-list">
+            <li>Italian Night — Feb 8 at Erdman</li>
+            <li>Thai Food Week — Feb 10–14 at HDC</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
 
 export default HomePage;
+
