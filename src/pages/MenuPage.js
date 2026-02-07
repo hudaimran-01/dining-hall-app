@@ -25,7 +25,7 @@ const MenuPage = () => {
           Location: 
           <select value={location} onChange={e => setLocation(e.target.value)} style={{ marginLeft: '5px' }}>
             <option>All</option>
-            <option>Haverford Dining Centre</option>
+            <option>Haverford Dining Center</option>
             <option>New Dorm</option>
             <option>Erdman</option>
           </select>
