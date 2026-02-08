@@ -1,52 +1,100 @@
-/* Ratings Page */
+/* ============================================
+   BOLD MINIMALISM - RATINGS PAGE
+   Crimson Color Palette
+   ============================================ */
+
+/* CSS Variables */
+:root {
+  /* Crimson Color Palette */
+  --primary: #dc2626;
+  --secondary: #991b1b;
+  --accent: #ef4444;
+  --background: #ffffff;
+  --surface: #fef2f2;
+  --text: #1a1a1a;
+  --text-secondary: #525252;
+  --border: #fee2e2;
+  
+  /* Typography Weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+  
+  /* Spacing System */
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-full: 9999px;
+}
+
+/* Base */
 .ratings-page {
   min-height: 100vh;
-  background: #f5f7fa;
-  padding: 2rem;
+  background: var(--background);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Header */
 .ratings-header {
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .back-button {
-  background: white;
-  border: 1px solid #e2e8f0;
-  color: #718096;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  background: transparent;
+  border: 2px solid var(--text);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-weight: var(--font-bold);
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 1.5rem;
-  display: inline-block;
+  transition: all 0.2s ease;
+  margin-bottom: var(--spacing-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
 }
 
 .back-button:hover {
-  background: #f7fafc;
-  color: #1a202c;
-  transform: translateX(-3px);
+  background: var(--text);
+  color: var(--background);
 }
 
 .ratings-hero {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   text-align: center;
+  padding: var(--spacing-2xl) 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .ratings-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #1a202c;
-  margin-bottom: 0.5rem;
+  font-size: 4rem;
+  font-weight: var(--font-black);
+  color: var(--text);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
 .ratings-subtitle {
-  font-size: 1.1rem;
-  color: #718096;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-light);
+  line-height: 1.6;
 }
 
 /* Container */
@@ -55,74 +103,88 @@
   margin: 0 auto;
 }
 
-/* Top Section - Form and Poll */
+/* Top Section */
 .top-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
-/* Cards */
+/* Cards - Minimal Design */
 .form-card,
 .poll-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xl);
 }
 
 .card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: var(--font-extrabold);
+  color: var(--text);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.02em;
 }
 
 /* Form Styles */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .form-group label {
   display: block;
-  font-weight: 600;
-  color: #1a202c;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  font-weight: var(--font-bold);
+  color: var(--text);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .dish-input {
   width: 100%;
-  padding: 0.875rem 1rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
+  padding: var(--spacing-md);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
   font-size: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  background: var(--background);
+  color: var(--text);
+  font-weight: var(--font-light);
+  font-family: inherit;
 }
 
 .dish-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--surface);
 }
 
-/* Star Rating */
+.dish-input::placeholder {
+  color: var(--text-secondary);
+  font-weight: var(--font-light);
+}
+
+/* Star Rating - Bold */
 .star-rating {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .star {
-  font-size: 2.5rem;
-  color: #e2e8f0;
+  font-size: 3rem;
+  color: var(--border);
   transition: all 0.2s ease;
   cursor: pointer;
+  font-weight: var(--font-black);
+  line-height: 1;
 }
 
 .star.filled {
-  color: #f59e0b;
+  color: var(--primary);
 }
 
 .star:hover {
@@ -130,109 +192,117 @@
 }
 
 .rating-text {
-  font-size: 0.95rem;
-  color: #667eea;
-  font-weight: 600;
-  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: var(--font-bold);
+  margin-top: var(--spacing-sm);
 }
 
 /* Submit Button */
 .submit-btn {
   width: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: var(--primary);
+  color: var(--background);
   border: none;
-  padding: 1rem;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: var(--font-bold);
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
+  transition: all 0.2s ease;
+  margin-top: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
+  background: var(--secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 /* Message */
 .message {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  font-weight: 600;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-bold);
   text-align: center;
+  border: 2px solid;
 }
 
 .message.success {
-  background: #d1fae5;
-  color: #065f46;
-  border: 2px solid #10b981;
+  background: var(--surface);
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 .message.error {
-  background: #fee2e2;
-  color: #991b1b;
-  border: 2px solid #ef4444;
+  background: var(--surface);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* Poll Styles */
 .poll-question {
-  font-size: 1.1rem;
-  color: #1a202c;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--text);
+  font-weight: var(--font-extrabold);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.5px;
 }
 
 .poll-options {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .poll-option {
   width: 100%;
-  padding: 1rem 1.25rem;
-  background: white;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
   text-align: left;
-  font-weight: 600;
-  color: #1a202c;
+  font-weight: var(--font-bold);
+  color: var(--text);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
+  font-family: inherit;
 }
 
 .poll-option:hover {
-  border-color: #667eea;
-  background: #f7fafc;
+  border-color: var(--text);
 }
 
 .poll-option.selected {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  background: var(--text);
+  color: var(--background);
+  border-color: var(--text);
 }
 
 .checkmark {
   position: absolute;
-  right: 1.25rem;
+  right: var(--spacing-lg);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: var(--font-black);
 }
 
 .poll-results {
-  margin-top: 1rem;
-  padding: 1rem;
-  background: #fef3c7;
-  border: 2px solid #f59e0b;
-  border-radius: 8px;
-  color: #92400e;
-  font-weight: 600;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--surface);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-sm);
+  color: var(--primary);
+  font-weight: var(--font-bold);
   text-align: center;
 }
 
@@ -240,105 +310,111 @@
 .dishes-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: var(--spacing-2xl);
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border);
 }
 
 .section-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #1a202c;
+  font-size: 2.5rem;
+  font-weight: var(--font-extrabold);
+  color: var(--text);
+  letter-spacing: -0.02em;
 }
 
 .badge {
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 700;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: var(--font-bold);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.05em;
+  background: var(--surface);
+  color: var(--primary);
 }
 
 .badge.success {
-  background: #d1fae5;
-  color: #065f46;
+  background: var(--surface);
+  color: var(--primary);
 }
 
 .badge.warning {
-  background: #fed7aa;
-  color: #9a3412;
+  background: #fef3c7;
+  color: #d97706;
 }
 
 /* Dishes Grid */
 .dishes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-xl);
 }
 
 .no-data {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 3rem;
-  color: #718096;
-  font-size: 1.1rem;
-  background: white;
-  border-radius: 12px;
-  border: 2px dashed #e2e8f0;
+  padding: var(--spacing-2xl);
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+  font-weight: var(--font-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
 }
 
 /* Dish Rank Cards */
 .dish-rank-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-lg);
   display: flex;
   align-items: center;
-  gap: 1.25rem;
-  transition: all 0.3s ease;
-  border-left: 4px solid;
+  gap: var(--spacing-md);
+  transition: all 0.2s ease;
+  position: relative;
 }
 
 .dish-rank-card.top {
-  border-left-color: #10b981;
+  border-left: 4px solid var(--primary);
 }
 
 .dish-rank-card.worst {
-  border-left-color: #ef4444;
+  border-left: 4px solid var(--accent);
 }
 
 .dish-rank-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04);
 }
 
 /* Rank Badge */
 .rank-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: white;
+  font-size: 1.75rem;
+  font-weight: var(--font-black);
+  color: var(--background);
   flex-shrink: 0;
+  background: var(--text);
 }
 
 .rank-badge.top-rank {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: var(--primary);
 }
 
 .rank-badge.worst-rank {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  background: var(--accent);
 }
 
 /* Dish Info */
@@ -347,17 +423,18 @@
 }
 
 .dish-name {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1a202c;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: var(--font-extrabold);
+  color: var(--text);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: -0.5px;
 }
 
 .dish-rating {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
 }
 
 .dish-rating .star {
@@ -365,18 +442,23 @@
   cursor: default;
 }
 
+.dish-rating .star:hover {
+  transform: none;
+}
+
 .rating-num {
-  font-weight: 700;
-  color: #f59e0b;
-  font-size: 1rem;
+  font-weight: var(--font-black);
+  color: var(--text);
+  font-size: 1.25rem;
 }
 
 .rating-count {
-  font-size: 0.85rem;
-  color: #718096;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-light);
 }
 
-/* Confetti */
+/* Confetti Animation */
 .confetti {
   position: fixed;
   top: 50%;
@@ -412,40 +494,71 @@
 
 @media (max-width: 768px) {
   .ratings-page {
-    padding: 1rem;
+    padding: var(--spacing-lg);
   }
-
+  
   .ratings-title {
-    font-size: 2rem;
+    font-size: 3rem;
   }
-
+  
+  .ratings-subtitle {
+    font-size: 1rem;
+  }
+  
   .form-card,
   .poll-card {
-    padding: 1.5rem;
+    padding: var(--spacing-lg);
   }
-
+  
+  .card-title {
+    font-size: 1.5rem;
+  }
+  
   .dishes-grid {
     grid-template-columns: 1fr;
   }
-
+  
   .section-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--spacing-sm);
+  }
+  
+  .section-title {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .ratings-title {
-    font-size: 1.75rem;
+  .ratings-page {
+    padding: var(--spacing-md);
   }
-
+  
+  .ratings-title {
+    font-size: 2rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
   .star {
     font-size: 2rem;
   }
-
+  
   .dish-rank-card {
     flex-direction: column;
     text-align: center;
+    gap: var(--spacing-lg);
+  }
+  
+  .dish-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .dish-rating {
+    justify-content: center;
   }
 }

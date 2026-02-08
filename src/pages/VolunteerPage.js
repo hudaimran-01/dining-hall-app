@@ -104,26 +104,32 @@ function VolunteerPage() {
 
   return (
     <div style={styles.pageWrapper}>
-      {/* Hero Section */}
+      {/* Back Button */}
+      <button 
+        onClick={() => window.location.href = '/admin'}
+        style={styles.backButton}
+      >
+        ← BACK TO ADMIN
+      </button>
+
+      {/* Hero Section - Bold Minimalism */}
       <div style={styles.heroSection}>
-        <div style={styles.heroContent}>
-          <div style={styles.badge}>Community Impact</div>
-          <h1 style={styles.heroTitle}>Food Rescue Volunteers</h1>
-          <p style={styles.heroSubtitle}>
-            Turn surplus dining hall meals into community support. Every delivery 
-            means a warm meal for someone who needs it.
-          </p>
-        </div>
+        <div style={styles.badge}>COMMUNITY IMPACT</div>
+        <h1 style={styles.heroTitle}>Food Rescue Volunteers</h1>
+        <p style={styles.heroSubtitle}>
+          Turn surplus dining hall meals into community support. Every delivery 
+          means a warm meal for someone who needs it.
+        </p>
       </div>
 
-      {/* Impact Stats - Asymmetric Grid */}
+      {/* Impact Stats - Clean Grid */}
       <div style={styles.impactGrid}>
         <div style={{...styles.impactCard, ...styles.impactCardLarge}}>
           <div style={styles.impactIcon}>
             <PlateIcon />
           </div>
           <div style={styles.impactValue}>1,247</div>
-          <div style={styles.impactLabel}>Meals Delivered</div>
+          <div style={styles.impactLabel}>MEALS DELIVERED</div>
           <div style={styles.impactSublabel}>since September</div>
         </div>
 
@@ -132,7 +138,7 @@ function VolunteerPage() {
             <UsersIcon />
           </div>
           <div style={styles.smallImpactValue}>42</div>
-          <div style={styles.impactLabel}>Active Volunteers</div>
+          <div style={styles.impactLabel}>ACTIVE VOLUNTEERS</div>
         </div>
 
         <div style={styles.impactCard}>
@@ -140,15 +146,15 @@ function VolunteerPage() {
             <HomeIcon />
           </div>
           <div style={styles.smallImpactValue}>5</div>
-          <div style={styles.impactLabel}>Partner Shelters</div>
+          <div style={styles.impactLabel}>PARTNER SHELTERS</div>
         </div>
 
-        <div style={{...styles.impactCard, ...styles.impactCardAccent}}>
+        <div style={styles.impactCard}>
           <div style={styles.smallImpactIcon}>
             <RecycleIcon />
           </div>
           <div style={styles.smallImpactValue}>850kg</div>
-          <div style={styles.impactLabel}>Food Rescued</div>
+          <div style={styles.impactLabel}>FOOD RESCUED</div>
         </div>
       </div>
 
@@ -162,10 +168,8 @@ function VolunteerPage() {
           <button 
             onClick={() => setShowForm(!showForm)} 
             style={styles.toggleButton}
-            onMouseEnter={(e) => e.target.style.transform = 'translateY(-2px)'}
-            onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
           >
-            {showForm ? '✕ Close' : '+ Sign Up to Help'}
+            {showForm ? '✕ CLOSE' : '+ SIGN UP TO HELP'}
           </button>
         </div>
 
@@ -173,7 +177,7 @@ function VolunteerPage() {
           <div style={styles.formContainer}>
             <form onSubmit={handleSubmit} style={styles.formGrid}>
               <div style={styles.formGroup}>
-                <label style={styles.formLabel}>Full Name</label>
+                <label style={styles.formLabel}>FULL NAME</label>
                 <input 
                   name="name" 
                   placeholder="Jamie Rodriguez" 
@@ -185,7 +189,7 @@ function VolunteerPage() {
               </div>
 
               <div style={styles.formGroup}>
-                <label style={styles.formLabel}>Email Address</label>
+                <label style={styles.formLabel}>EMAIL ADDRESS</label>
                 <input 
                   name="email" 
                   type="email"
@@ -198,7 +202,7 @@ function VolunteerPage() {
               </div>
 
               <div style={styles.formGroup}>
-                <label style={styles.formLabel}>Phone Number</label>
+                <label style={styles.formLabel}>PHONE NUMBER</label>
                 <input 
                   name="phone" 
                   type="tel"
@@ -211,7 +215,7 @@ function VolunteerPage() {
               </div>
 
               <div style={styles.formGroup}>
-                <label style={styles.formLabel}>Preferred Date</label>
+                <label style={styles.formLabel}>PREFERRED DATE</label>
                 <input 
                   type="date" 
                   name="date" 
@@ -223,7 +227,7 @@ function VolunteerPage() {
               </div>
 
               <div style={styles.formGroup}>
-                <label style={styles.formLabel}>Time Slot</label>
+                <label style={styles.formLabel}>TIME SLOT</label>
                 <select 
                   name="time" 
                   value={formData.time} 
@@ -239,7 +243,7 @@ function VolunteerPage() {
               </div>
 
               <button type="submit" style={styles.submitBtn}>
-                Confirm My Spot
+                CONFIRM MY SPOT
               </button>
             </form>
           </div>
@@ -263,7 +267,7 @@ function VolunteerPage() {
                 </div>
               </div>
               <div style={v.status === 'confirmed' ? styles.statusConfirmed : styles.statusPending}>
-                {v.status === 'confirmed' ? '✓ Confirmed' : '⏱ Pending'}
+                {v.status === 'confirmed' ? '✓ CONFIRMED' : '⏱ PENDING'}
               </div>
             </div>
           ))}
@@ -306,177 +310,185 @@ function VolunteerPage() {
   );
 }
 
-/* STYLES */
+/* BOLD MINIMALISM STYLES - CRIMSON THEME */
 
 const styles = {
   pageWrapper: {
-    maxWidth: '1100px',
+    maxWidth: '1400px',
     margin: '0 auto',
-    padding: '20px',
+    padding: '4rem 2rem',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    backgroundColor: '#ffffff',
+  },
+
+  backButton: {
+    background: 'transparent',
+    border: '2px solid #1a1a1a',
     color: '#1a1a1a',
+    padding: '0.75rem 1.5rem',
+    fontWeight: 700,
+    fontSize: '0.85rem',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease',
+    marginBottom: '3rem',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
   },
 
   heroSection: {
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    borderRadius: '16px',
-    padding: '60px 40px',
-    marginBottom: '40px',
-    position: 'relative',
-    overflow: 'hidden',
-  },
-
-  heroContent: {
-    position: 'relative',
-    zIndex: 1,
+    padding: '4rem 0',
+    marginBottom: '4rem',
+    borderBottom: '1px solid #fee2e2',
+    textAlign: 'center',
   },
 
   badge: {
     display: 'inline-block',
-    background: 'rgba(255,255,255,0.25)',
-    color: 'white',
-    padding: '6px 16px',
-    borderRadius: '20px',
-    fontSize: '13px',
-    fontWeight: '600',
-    marginBottom: '16px',
-    backdropFilter: 'blur(10px)',
+    background: '#fef2f2',
+    color: '#dc2626',
+    padding: '0.5rem 1.25rem',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    marginBottom: '2rem',
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
   },
 
   heroTitle: {
-    fontSize: '48px',
-    fontWeight: '700',
-    color: 'white',
-    margin: '0 0 12px 0',
-    letterSpacing: '-0.5px',
+    fontSize: '4rem',
+    fontWeight: 900,
+    color: '#1a1a1a',
+    margin: '0 0 1.5rem 0',
+    letterSpacing: '-0.03em',
+    lineHeight: 1.1,
   },
 
   heroSubtitle: {
-    fontSize: '19px',
-    color: 'rgba(255,255,255,0.9)',
-    maxWidth: '600px',
-    lineHeight: '1.6',
-    margin: 0,
+    fontSize: '1.25rem',
+    color: '#525252',
+    fontWeight: 300,
+    maxWidth: '700px',
+    lineHeight: 1.8,
+    margin: '0 auto',
   },
 
   impactGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '16px',
-    marginBottom: '50px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gap: '2rem',
+    marginBottom: '4rem',
   },
 
   impactCard: {
-    background: 'white',
-    border: '1px solid #e5e7eb',
-    borderRadius: '12px',
-    padding: '24px',
+    background: '#ffffff',
+    border: '1px solid #fee2e2',
+    padding: '3rem 2rem',
     transition: 'all 0.2s ease',
-    cursor: 'default',
   },
 
   impactCardLarge: {
     gridRow: 'span 2',
-    background: 'linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%)',
-    border: 'none',
-  },
-
-  impactCardAccent: {
-    background: '#f0fdf4',
-    borderColor: '#bbf7d0',
+    borderLeft: '4px solid #dc2626',
   },
 
   impactIcon: {
-    marginBottom: '12px',
+    marginBottom: '1.5rem',
     color: '#1a1a1a',
   },
 
   impactValue: {
-    fontSize: '56px',
-    fontWeight: '700',
+    fontSize: '4rem',
+    fontWeight: 900,
     color: '#1a1a1a',
-    marginBottom: '8px',
-    letterSpacing: '-1px',
+    marginBottom: '1rem',
+    letterSpacing: '-0.02em',
+    lineHeight: 1,
   },
 
   impactLabel: {
-    fontSize: '15px',
-    color: '#4b5563',
-    fontWeight: '600',
+    fontSize: '0.75rem',
+    color: '#525252',
+    fontWeight: 700,
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
   },
 
   impactSublabel: {
-    fontSize: '13px',
-    color: '#9ca3af',
-    marginTop: '4px',
+    fontSize: '0.85rem',
+    color: '#525252',
+    fontWeight: 300,
+    marginTop: '0.5rem',
   },
 
   smallImpactIcon: {
-    marginBottom: '8px',
+    marginBottom: '1rem',
     color: '#1a1a1a',
   },
 
   smallImpactValue: {
-    fontSize: '36px',
-    fontWeight: '700',
+    fontSize: '3rem',
+    fontWeight: 900,
     color: '#1a1a1a',
-    marginBottom: '4px',
+    marginBottom: '0.75rem',
+    lineHeight: 1,
   },
 
   scheduleContainer: {
-    background: 'white',
-    border: '1px solid #e5e7eb',
-    borderRadius: '16px',
-    padding: '32px',
-    marginBottom: '40px',
+    background: '#ffffff',
+    border: '1px solid #fee2e2',
+    padding: '3rem',
+    marginBottom: '4rem',
   },
 
   scheduleHeader: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: '28px',
+    marginBottom: '3rem',
+    paddingBottom: '2rem',
+    borderBottom: '1px solid #fee2e2',
     flexWrap: 'wrap',
-    gap: '16px',
+    gap: '1.5rem',
   },
 
   sectionTitle: {
-    fontSize: '28px',
-    fontWeight: '700',
+    fontSize: '2.5rem',
+    fontWeight: 800,
     color: '#1a1a1a',
-    margin: '0 0 6px 0',
+    margin: '0 0 0.5rem 0',
+    letterSpacing: '-0.02em',
   },
 
   sectionSubtitle: {
-    fontSize: '15px',
-    color: '#6b7280',
+    fontSize: '1rem',
+    color: '#525252',
+    fontWeight: 300,
     margin: 0,
   },
 
   toggleButton: {
-    background: '#667eea',
-    color: 'white',
+    background: '#dc2626',
+    color: '#ffffff',
     border: 'none',
-    padding: '12px 24px',
-    borderRadius: '8px',
-    fontSize: '15px',
-    fontWeight: '600',
+    padding: '1rem 2rem',
+    fontSize: '0.9rem',
+    fontWeight: 700,
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    boxShadow: '0 2px 8px rgba(102, 126, 234, 0.3)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
   },
 
   formContainer: {
-    background: '#f9fafb',
-    borderRadius: '12px',
-    padding: '28px',
-    marginBottom: '32px',
+    background: '#fef2f2',
+    padding: '3rem',
+    marginBottom: '3rem',
   },
 
   formGrid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-    gap: '20px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: '2rem',
   },
 
   formGroup: {
@@ -485,63 +497,67 @@ const styles = {
   },
 
   formLabel: {
-    fontSize: '14px',
-    fontWeight: '600',
-    color: '#374151',
-    marginBottom: '8px',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    color: '#1a1a1a',
+    marginBottom: '0.75rem',
+    letterSpacing: '0.1em',
+    textTransform: 'uppercase',
   },
 
   formInput: {
-    padding: '12px 14px',
-    border: '1.5px solid #d1d5db',
-    borderRadius: '8px',
-    fontSize: '15px',
+    padding: '1rem 1.25rem',
+    border: '2px solid #fee2e2',
+    fontSize: '1rem',
+    fontWeight: 300,
     transition: 'border-color 0.2s ease',
-    background: 'white',
+    background: '#ffffff',
     outline: 'none',
+    color: '#1a1a1a',
   },
 
   submitBtn: {
     gridColumn: '1 / -1',
-    background: '#10b981',
-    color: 'white',
+    background: '#dc2626',
+    color: '#ffffff',
     border: 'none',
-    padding: '14px 28px',
-    borderRadius: '8px',
-    fontSize: '16px',
-    fontWeight: '600',
+    padding: '1.25rem 2rem',
+    fontSize: '1rem',
+    fontWeight: 700,
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    boxShadow: '0 2px 8px rgba(16, 185, 129, 0.3)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.05em',
+    marginTop: '1rem',
   },
 
   volunteerList: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '12px',
+    gap: '1rem',
   },
 
   volunteerCard: {
     display: 'flex',
     alignItems: 'center',
-    padding: '16px',
-    background: '#fafafa',
-    borderRadius: '10px',
-    gap: '16px',
-    transition: 'background 0.2s ease',
+    padding: '1.5rem',
+    background: '#ffffff',
+    border: '1px solid #fee2e2',
+    gap: '1.5rem',
+    transition: 'border-color 0.2s ease',
   },
 
   volunteerAvatar: {
-    width: '48px',
-    height: '48px',
-    borderRadius: '50%',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    color: 'white',
+    width: '60px',
+    height: '60px',
+    borderRadius: '0',
+    background: '#1a1a1a',
+    color: '#ffffff',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontWeight: '700',
-    fontSize: '16px',
+    fontWeight: 900,
+    fontSize: '1.25rem',
     flexShrink: 0,
   },
 
@@ -550,67 +566,71 @@ const styles = {
   },
 
   volunteerName: {
-    fontSize: '16px',
-    fontWeight: '600',
+    fontSize: '1.25rem',
+    fontWeight: 800,
     color: '#1a1a1a',
-    marginBottom: '4px',
+    marginBottom: '0.5rem',
   },
 
   volunteerDetails: {
-    fontSize: '14px',
-    color: '#6b7280',
+    fontSize: '0.95rem',
+    color: '#525252',
+    fontWeight: 300,
   },
 
   statusConfirmed: {
-    padding: '6px 14px',
-    background: '#d1fae5',
-    color: '#065f46',
-    borderRadius: '6px',
-    fontSize: '13px',
-    fontWeight: '600',
+    padding: '0.5rem 1.25rem',
+    background: '#fef2f2',
+    color: '#dc2626',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    letterSpacing: '0.05em',
+    textTransform: 'uppercase',
   },
 
   statusPending: {
-    padding: '6px 14px',
-    background: '#fef3c7',
-    color: '#92400e',
-    borderRadius: '6px',
-    fontSize: '13px',
-    fontWeight: '600',
+    padding: '0.5rem 1.25rem',
+    background: '#fef2f2',
+    color: '#ef4444',
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    letterSpacing: '0.05em',
+    textTransform: 'uppercase',
   },
 
   infoCardsContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-    gap: '20px',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+    gap: '2rem',
   },
 
   infoCard: {
-    background: 'white',
-    border: '1px solid #e5e7eb',
-    borderRadius: '12px',
-    padding: '28px',
+    background: '#ffffff',
+    border: '1px solid #fee2e2',
+    padding: '3rem 2rem',
     textAlign: 'center',
   },
 
   infoCardIcon: {
-    marginBottom: '12px',
+    marginBottom: '1.5rem',
     color: '#1a1a1a',
     display: 'flex',
     justifyContent: 'center',
   },
 
   infoCardTitle: {
-    fontSize: '18px',
-    fontWeight: '700',
+    fontSize: '1.5rem',
+    fontWeight: 800,
     color: '#1a1a1a',
-    margin: '0 0 10px 0',
+    margin: '0 0 1rem 0',
+    letterSpacing: '-0.01em',
   },
 
   infoCardText: {
-    fontSize: '15px',
-    color: '#6b7280',
-    lineHeight: '1.6',
+    fontSize: '1rem',
+    color: '#525252',
+    fontWeight: 300,
+    lineHeight: 1.7,
     margin: 0,
   },
 };

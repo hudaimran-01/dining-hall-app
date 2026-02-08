@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import BiCoLogo from './BiCoLogo';
 import './Header.css';
+
 
 function Header() {
   return (
