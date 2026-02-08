@@ -116,7 +116,6 @@ export default function HomePage() {
       >
         {/* Wait Times Card */}
         <motion.div className="stat-card green-border" variants={fadeIn}>
-          <div className="stat-icon green"></div>
           <div className="stat-content">
             <div className="stat-header">
               <span className="stat-label">SHORTEST WAIT</span>
@@ -133,7 +132,6 @@ export default function HomePage() {
 
         {/* Top Dish Card */}
         <motion.div className="stat-card yellow-border" variants={fadeIn}>
-          <div className="stat-icon yellow"></div>
           <div className="stat-content">
             <div className="stat-header">
               <span className="stat-label">TOP RATED TODAY</span>
@@ -155,7 +153,6 @@ export default function HomePage() {
 
         {/* Events Card */}
         <motion.div className="stat-card purple-border" variants={fadeIn}>
-          <div className="stat-icon purple"></div>
           <div className="stat-content">
             <div className="stat-header">
               <span className="stat-label">UPCOMING EVENTS</span>
@@ -172,7 +169,6 @@ export default function HomePage() {
 
         {/* Meals Served Card */}
         <motion.div className="stat-card orange-border" variants={fadeIn}>
-          <div className="stat-icon orange"></div>
           <div className="stat-content">
             <div className="stat-header">
               <span className="stat-label">MEALS SERVED</span>

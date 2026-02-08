@@ -181,7 +181,7 @@ function AdminDashboard() {
   const autoMatchShelters = (surplus) => {
     const availableShelters = shelters.filter(s => s.todayAvailable);
     if (availableShelters.length > 0) {
-      alert(`✅ Posted surplus from ${surplus.location}! 
+      alert(`Posted surplus from ${surplus.location}! 
       ${availableShelters.length} available shelters have been notified.`);
     }
   };
@@ -206,6 +206,122 @@ function AdminDashboard() {
   const metrics = getMetrics();
   const wasteReduction = ((wasteData.lastWeek.total - wasteData.thisWeek.total) / wasteData.lastWeek.total * 100).toFixed(1);
 
+  // SVG Icons
+  const BoxIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+      <line x1="12" y1="22.08" x2="12" y2="12"/>
+    </svg>
+  );
+
+  const HandshakeIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M16 3h5v5"/>
+      <path d="M8 3H3v5"/>
+      <path d="M12 12c-1 1.5-3 2-5 2s-4-.5-5-2c-1-1.5-.5-3.5 1-5L7 3l5 5"/>
+      <path d="M12 12c1 1.5 3 2 5 2s4-.5 5-2c1-1.5.5-3.5-1-5L17 3l-5 5"/>
+    </svg>
+  );
+
+  const UsersIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>
+  );
+
+  const HeartIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>
+  );
+
+  const TrendDownIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
+      <polyline points="17 18 23 18 23 12"/>
+    </svg>
+  );
+
+  const TrashIcon = () => (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <polyline points="3 6 5 6 21 6"/>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      <line x1="10" y1="11" x2="10" y2="17"/>
+      <line x1="14" y1="11" x2="14" y2="17"/>
+    </svg>
+  );
+
+  const BellIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+      <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+    </svg>
+  );
+
+  const MapPinIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+      <circle cx="12" cy="10" r="3"/>
+    </svg>
+  );
+
+  const ClockIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="10"/>
+      <polyline points="12 6 12 12 16 14"/>
+    </svg>
+  );
+
+  const PhoneIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </svg>
+  );
+
+  const StarIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    </svg>
+  );
+
+  const TruckIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="1" y="3" width="15" height="13"/>
+      <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+      <circle cx="5.5" cy="18.5" r="2.5"/>
+      <circle cx="18.5" cy="18.5" r="2.5"/>
+    </svg>
+  );
+
+  const LightbulbIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M9 18h6"/>
+      <path d="M10 22h4"/>
+      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
+    </svg>
+  );
+
+  const BarChartIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <line x1="12" y1="20" x2="12" y2="10"/>
+      <line x1="18" y1="20" x2="18" y2="4"/>
+      <line x1="6" y1="20" x2="6" y2="16"/>
+    </svg>
+  );
+
+  const PackageIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/>
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+      <line x1="12" y1="22.08" x2="12" y2="12"/>
+    </svg>
+  );
+
   return (
     <div className="admin-dashboard">
       {/* Enhanced Header */}
@@ -213,9 +329,15 @@ function AdminDashboard() {
         <div className="header-content">
           <div className="header-left">
             <div className="logo-section">
-              <div className="logo-icon">🍽️</div>
+              <div className="logo-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+                  <path d="M7 2v20"/>
+                  <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+                </svg>
+              </div>
               <div className="title-section">
-                <h1>Food Rescue Dashboard</h1>
+                <h1>Surplus Recovery System</h1>
                 <p className="subtitle">Bryn Mawr & Haverford Dining Services</p>
               </div>
             </div>
@@ -231,21 +353,21 @@ function AdminDashboard() {
             className={`nav-tab ${activeTab === 'overview' ? 'active' : ''}`}
             onClick={() => setActiveTab('overview')}
           >
-            <span className="tab-icon">📊</span>
+            <span className="tab-icon"><BarChartIcon /></span>
             Overview
           </button>
           <button 
-            className={`nav-tab ${activeTab === 'rescue' ? 'active' : ''}`}
-            onClick={() => setActiveTab('rescue')}
+            className={`nav-tab ${activeTab === 'recovery' ? 'active' : ''}`}
+            onClick={() => setActiveTab('recovery')}
           >
-            <span className="tab-icon">🍱</span>
-            Food Rescue
+            <span className="tab-icon"><PackageIcon /></span>
+            Food Recovery
           </button>
           <button 
             className={`nav-tab ${activeTab === 'recommendations' ? 'active' : ''}`}
             onClick={() => setActiveTab('recommendations')}
           >
-            <span className="tab-icon">💡</span>
+            <span className="tab-icon"><LightbulbIcon /></span>
             Recommendations
           </button>
         </nav>
@@ -258,7 +380,7 @@ function AdminDashboard() {
           <div className="metrics-grid">
             <div className="metric-card green">
               <div className="metric-header">
-                <span className="metric-icon">🍱</span>
+                <span className="metric-icon"><BoxIcon /></span>
                 <span className="metric-trend positive">+12%</span>
               </div>
               <h3>Available Surplus</h3>
@@ -274,7 +396,7 @@ function AdminDashboard() {
 
             <div className="metric-card blue">
               <div className="metric-header">
-                <span className="metric-icon">🤝</span>
+                <span className="metric-icon"><HandshakeIcon /></span>
                 <span className="metric-trend positive">+8%</span>
               </div>
               <h3>Matched Today</h3>
@@ -290,7 +412,7 @@ function AdminDashboard() {
 
             <div className="metric-card purple">
               <div className="metric-header">
-                <span className="metric-icon">👥</span>
+                <span className="metric-icon"><UsersIcon /></span>
                 <span className="metric-trend neutral">→</span>
               </div>
               <h3>Active Volunteers</h3>
@@ -306,7 +428,7 @@ function AdminDashboard() {
 
             <div className="metric-card orange">
               <div className="metric-header">
-                <span className="metric-icon">❤️</span>
+                <span className="metric-icon"><HeartIcon /></span>
                 <span className="metric-trend positive">+24%</span>
               </div>
               <h3>People Fed</h3>
@@ -321,20 +443,23 @@ function AdminDashboard() {
             </div>
           </div>
 
-{/* Waste Reduction Overview */}
+          {/* Waste Reduction Overview */}
           <div className="waste-overview-section">
             <div className="content-card waste-summary">
               <div className="card-header">
-                <h2>📉 Waste Reduction Overview</h2>
+                <h2>
+                  <TrendDownIcon />
+                  Waste Reduction Overview
+                </h2>
                 <div className="badge-group">
                   <span className="badge success">-{wasteReduction}% vs last week</span>
-                  <span className="badge eco">🌿 Eco Impact</span>
+                  <span className="badge eco">Eco Impact</span>
                 </div>
               </div>
               
               <div className="waste-stats-grid">
                 <div className="waste-stat-card">
-                  <div className="stat-icon red">🗑️</div>
+                  <div className="stat-icon red"><TrashIcon /></div>
                   <div className="stat-content">
                     <h4>This Week's Waste</h4>
                     <p className="stat-value">{wasteData.thisWeek.total} <span className="stat-unit">lbs</span></p>
@@ -385,13 +510,16 @@ function AdminDashboard() {
         </>
       )}
 
-      {/* Food Rescue Tab */}
-      {activeTab === 'rescue' && (
+      {/* Food Recovery Tab */}
+      {activeTab === 'recovery' && (
         <div className="rescue-layout">
           {/* Post Surplus Section */}
           <div className="content-card post-surplus-card">
             <div className="card-header">
-              <h2>➕ Post New Surplus</h2>
+              <h2>
+                <BellIcon />
+                Post New Surplus
+              </h2>
               <span className="badge live">
                 <span className="pulse-dot"></span>
                 LIVE
@@ -406,9 +534,9 @@ function AdminDashboard() {
                 className="form-select"
               >
                 <option value="">Select location...</option>
-                <option value="New Dorm Dining Hall">🏛️ New Dorm Dining Hall</option>
-                <option value="Erdman Dining Hall">🏛️ Erdman Dining Hall</option>
-                <option value="Haverford Dining Center">🏛️ Haverford Dining Center</option>
+                <option value="New Dorm Dining Hall">New Dorm Dining Hall</option>
+                <option value="Erdman Dining Hall">Erdman Dining Hall</option>
+                <option value="Haverford Dining Center">Haverford Dining Center</option>
               </select>
             </div>
 
@@ -423,7 +551,7 @@ function AdminDashboard() {
               />
             </div>
 
-<div className="form-group">
+            <div className="form-group">
               <label>Estimated Servings</label>
               <div className="radio-group">
                 <label className="radio-option">
@@ -470,7 +598,7 @@ function AdminDashboard() {
               className="post-btn"
               disabled={!newSurplus.location || !newSurplus.items || !newSurplus.amount}
             >
-              <span className="btn-icon">📢</span>
+              <span className="btn-icon"><BellIcon /></span>
               Post Surplus & Notify Shelters
             </button>
           </div>
@@ -478,7 +606,7 @@ function AdminDashboard() {
           {/* Available Surplus List */}
           <div className="content-card surplus-card">
             <div className="card-header">
-              <h2>📋 Available Surplus</h2>
+              <h2>Available Surplus</h2>
               <div className="badge-group">
                 <span className="badge count">{surplusFood.length} items</span>
                 <span className="badge filter">All Locations</span>
@@ -492,18 +620,18 @@ function AdminDashboard() {
                     <div className="surplus-title-section">
                       <h4>{food.location}</h4>
                       <span className={`urgency-badge ${food.urgency}`}>
-                        {food.urgency === 'high' ? '🔴 High Priority' : 
-                         food.urgency === 'medium' ? '🟡 Medium' : '🟢 Low Priority'}
+                        {food.urgency === 'high' ? 'High Priority' : 
+                         food.urgency === 'medium' ? 'Medium' : 'Low Priority'}
                       </span>
                     </div>
                     <span className={`status-badge ${food.status}`}>
-                      {food.status === 'available' ? '✓ Available' : '⏱ Reserved'}
+                      {food.status === 'available' ? 'Available' : 'Reserved'}
                     </span>
                   </div>
                   <p className="surplus-items">{food.items}</p>
                   <div className="surplus-details">
                     <div className="detail-item">
-                      <span className="detail-icon">🍽️</span>
+                      <span className="detail-icon"><BoxIcon /></span>
                       <span>{food.amount}</span>
                     </div>
                     <div className="detail-item">
@@ -511,25 +639,22 @@ function AdminDashboard() {
                       <span>{food.weight}</span>
                     </div>
                     <div className="detail-item">
-                      <span className="detail-icon">⏰</span>
+                      <span className="detail-icon"><ClockIcon /></span>
                       <span>{new Date(food.readyTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </div>
                     <div className="detail-item">
-                      <span className="detail-icon">📅</span>
+                      <span className="detail-icon"><ClockIcon /></span>
                       <span>{food.pickupWindow}</span>
                     </div>
                   </div>
                   <div className="surplus-actions">
                     <button className="btn-small primary">
-                      <span>🏠</span>
                       Match Shelter
                     </button>
                     <button className="btn-small secondary">
-                      <span>✏️</span>
                       Edit
                     </button>
                     <button className="btn-small tertiary">
-                      <span>📍</span>
                       Track
                     </button>
                   </div>
@@ -541,7 +666,10 @@ function AdminDashboard() {
           {/* Shelters & Volunteers */}
           <div className="content-card">
             <div className="card-header">
-              <h2>🏠 Partner Shelters</h2>
+              <h2>
+                <MapPinIcon />
+                Partner Shelters
+              </h2>
               <span className="badge">
                 {shelters.filter(s => s.todayAvailable).length}/{shelters.length} accepting
               </span>
@@ -553,12 +681,12 @@ function AdminDashboard() {
                   <div className="shelter-header">
                     <h4>{shelter.name}</h4>
                     <div className="reliability-badge">
-                      <span className="reliability-icon">⭐</span>
+                      <span className="reliability-icon"><StarIcon /></span>
                       <span>{shelter.reliability}%</span>
                     </div>
                   </div>
                   <p className="shelter-address">
-                    <span className="address-icon">📍</span>
+                    <span className="address-icon"><MapPinIcon /></span>
                     {shelter.address} ({shelter.distance})
                   </p>
                   <div className="shelter-info">
@@ -572,14 +700,17 @@ function AdminDashboard() {
                     </div>
                     <div className="info-item">
                       <span className="info-label">Contact:</span>
-                      <span className="info-value phone">{shelter.contact}</span>
+                      <span className="info-value phone">
+                        <PhoneIcon />
+                        {shelter.contact}
+                      </span>
                     </div>
                   </div>
                   <div className={`availability-badge ${shelter.todayAvailable ? 'open' : 'closed'}`}>
-                    {shelter.todayAvailable ? '✅ Accepting Today' : '❌ Closed Today'}
+                    {shelter.todayAvailable ? 'Accepting Today' : 'Closed Today'}
                   </div>
                   <p className="shelter-hours">
-                    <span className="hours-icon">🕐</span>
+                    <span className="hours-icon"><ClockIcon /></span>
                     {shelter.hours}
                   </p>
                   <button 
@@ -595,7 +726,10 @@ function AdminDashboard() {
             <div className="divider"></div>
 
             <div className="card-header">
-              <h2>👥 Active Volunteers</h2>
+              <h2>
+                <UsersIcon />
+                Active Volunteers
+              </h2>
               <span className="badge">{volunteers.length} registered</span>
             </div>
             
@@ -609,29 +743,29 @@ function AdminDashboard() {
                   <div className="volunteer-info">
                     <h4>{vol.name}</h4>
                     <p className="volunteer-assignment">
-                      <span className="assignment-icon">📍</span>
+                      <span className="assignment-icon"><MapPinIcon /></span>
                       {vol.assignedTo}
                     </p>
                     <p className="volunteer-trips">
-                      <span className="trips-icon">🚗</span>
+                      <span className="trips-icon"><TruckIcon /></span>
                       {vol.trips} trips completed
                     </p>
                   </div>
                   <div className={`volunteer-status ${vol.status}`}>
                     {vol.status === 'on route' ? (
                       <>
-                        <span className="status-icon">🚗</span>
+                        <span className="status-icon"><TruckIcon /></span>
                         <span className="status-text">On Route</span>
                         <span className="eta">ETA: {vol.eta}</span>
                       </>
                     ) : vol.status === 'waiting' ? (
                       <>
-                        <span className="status-icon">⏳</span>
+                        <span className="status-icon"><ClockIcon /></span>
                         <span className="status-text">Waiting</span>
                       </>
                     ) : (
                       <>
-                        <span className="status-icon">📴</span>
+                        <span className="status-icon">—</span>
                         <span className="status-text">Off Duty</span>
                       </>
                     )}
@@ -648,27 +782,30 @@ function AdminDashboard() {
         <div className="recommendations-layout">
           <div className="content-card full-width">
             <div className="card-header">
-              <h2>💡 AI-Powered Recommendations</h2>
+              <h2>
+                <LightbulbIcon />
+                Data-Driven Recommendations
+              </h2>
               <div className="badge-group">
                 <span className="badge success">{recommendations.filter(r => r.status === 'completed').length} completed</span>
                 <span className="badge warning">{recommendations.filter(r => r.status === 'pending').length} pending</span>
               </div>
             </div>
 
-<div className="recommendations-grid">
+            <div className="recommendations-grid">
               {recommendations.map(rec => (
                 <div key={rec.id} className={`recommendation-card priority-${rec.priority} status-${rec.status}`}>
                   <div className="rec-header">
                     <div className="rec-title-section">
                       <span className={`priority-badge ${rec.priority}`}>
-                        {rec.priority === 'high' ? '🔴 High Priority' : 
-                         rec.priority === 'medium' ? '🟡 Medium' : '🟢 Low Priority'}
+                        {rec.priority === 'high' ? 'High Priority' : 
+                         rec.priority === 'medium' ? 'Medium' : 'Low Priority'}
                       </span>
                       <span className="category-tag">{rec.category}</span>
                     </div>
                     <span className={`status-pill ${rec.status}`}>
-                      {rec.status === 'completed' ? '✓ Complete' : 
-                       rec.status === 'in-progress' ? '⟳ In Progress' : '⊙ Pending'}
+                      {rec.status === 'completed' ? 'Complete' : 
+                       rec.status === 'in-progress' ? 'In Progress' : 'Pending'}
                     </span>
                   </div>
                   
@@ -677,7 +814,7 @@ function AdminDashboard() {
                   
                   <div className="rec-impact">
                     <div className="impact-label">
-                      <span className="impact-icon">📊</span>
+                      <span className="impact-icon"><BarChartIcon /></span>
                       <span>Projected Impact</span>
                     </div>
                     <div className="impact-value">{rec.impact}</div>
@@ -687,11 +824,9 @@ function AdminDashboard() {
                     {rec.status === 'pending' && (
                       <>
                         <button className="btn-small primary">
-                          <span>✓</span>
                           Implement
                         </button>
                         <button className="btn-small secondary">
-                          <span>👁️</span>
                           View Details
                         </button>
                       </>
@@ -699,18 +834,15 @@ function AdminDashboard() {
                     {rec.status === 'in-progress' && (
                       <>
                         <button className="btn-small success">
-                          <span>✓</span>
                           Mark Complete
                         </button>
                         <button className="btn-small secondary">
-                          <span>📊</span>
                           Track Progress
                         </button>
                       </>
                     )}
                     {rec.status === 'completed' && (
                       <button className="btn-small tertiary">
-                        <span>📈</span>
                         View Results
                       </button>
                     )}
@@ -723,13 +855,13 @@ function AdminDashboard() {
           {/* Potential Savings Summary */}
           <div className="content-card">
             <div className="card-header">
-              <h2>💰 Potential Savings</h2>
+              <h2>Potential Savings</h2>
               <span className="badge success">If all implemented</span>
             </div>
             
             <div className="savings-summary">
               <div className="savings-card">
-                <div className="savings-icon">📉</div>
+                <div className="savings-icon"><TrendDownIcon /></div>
                 <div className="savings-content">
                   <h4>Weekly Waste Reduction</h4>
                   <p className="savings-value">845 <span className="savings-unit">lbs</span></p>
@@ -738,7 +870,7 @@ function AdminDashboard() {
               </div>
               
               <div className="savings-card">
-                <div className="savings-icon">💵</div>
+                <div className="savings-icon">$</div>
                 <div className="savings-content">
                   <h4>Annual Cost Savings</h4>
                   <p className="savings-value">$23,400</p>
@@ -747,7 +879,7 @@ function AdminDashboard() {
               </div>
               
               <div className="savings-card">
-                <div className="savings-icon">🌍</div>
+                <div className="savings-icon">CO₂</div>
                 <div className="savings-content">
                   <h4>CO₂ Reduction</h4>
                   <p className="savings-value">4.2 <span className="savings-unit">tons/year</span></p>
@@ -763,4 +895,3 @@ function AdminDashboard() {
 }
 
 export default AdminDashboard;
-
