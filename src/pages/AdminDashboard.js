@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './AdminDashboard.css';
 
 function AdminDashboard() {
-  const [currentTime, setCurrentTime] = useState(new Date());
   const [activeTab, setActiveTab] = useState('overview');
   
   // Real-time surplus food tracking
@@ -157,11 +156,6 @@ function AdminDashboard() {
     readyTime: ''
   });
 
-  useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   const postSurplus = () => {
     const today = new Date();
     const formattedTime = today.toISOString().slice(0, 16);
@@ -227,21 +221,7 @@ function AdminDashboard() {
             </div>
           </div>
           <div className="header-right">
-            <div className="time-widget">
-              <span className="time-label">Current Time</span>
-              <span className="time-display">
-                {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-              </span>
-              <span className="date-display">
-                {currentTime.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' })}
-              </span>
-            </div>
-            <button className="emergency-post-btn">
-              <span className="btn-icon">🚨</span>
-              <span>Emergency Post</span>
-            </button>
           </div>
-        </div>
         
         {/* Navigation Tabs */}
         <nav className="nav-tabs">
@@ -264,13 +244,6 @@ function AdminDashboard() {
             onClick={() => setActiveTab('analytics')}
           >
             <span className="tab-icon">📈</span>
-            Analytics
-          </button>
-          <button 
-            className={`nav-tab ${activeTab === 'recommendations' ? 'active' : ''}`}
-            onClick={() => setActiveTab('recommendations')}
-          >
-            <span className="tab-icon">💡</span>
             Recommendations
           </button>
         </nav>
@@ -384,8 +357,6 @@ function AdminDashboard() {
                       <span className="breakdown-value">{amount} lbs</span>
                     </div>
                   ))}
-                </div>
-
                 <div className="waste-breakdown">
                   <h4>Waste by Meal Period</h4>
                   {Object.entries(wasteData.thisWeek.byMeal).map(([meal, amount]) => (
@@ -408,105 +379,6 @@ function AdminDashboard() {
             </div>
           </div>
 
-          {/* Sustainability Impact */}
-          <div className="content-card full-width">
-            <div className="card-header">
-              <h2>🌿 Environmental Impact This Month</h2>
-              <span className="badge eco">Carbon Neutral Goal: 75%</span>
-            </div>
-            
-            <div className="sustainability-grid">
-              <div className="impact-card water">
-                <div className="impact-visual">
-                  <div className="impact-icon-large">💧</div>
-                  <div className="impact-progress">
-                    <svg viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="45" />
-                      <circle cx="50" cy="50" r="45" style={{strokeDashoffset: 35}} />
-                    </svg>
-                    <span className="progress-percent">78%</span>
-                  </div>
-                </div>
-                <div className="impact-content">
-                  <h4>Water Conservation</h4>
-                  <p className="impact-value">2,500 <span className="impact-unit">gallons</span></p>
-                  <p className="impact-desc">Equivalent to 33 bathtubs saved</p>
-                  <div className="impact-comparison">
-                    <span className="comparison-arrow">↑</span>
-                    <span>+15% from last month</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="impact-card carbon">
-                <div className="impact-visual">
-                  <div className="impact-icon-large">🌳</div>
-                  <div className="impact-progress">
-                    <svg viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="45" />
-                      <circle cx="50" cy="50" r="45" style={{strokeDashoffset: 50}} />
-                    </svg>
-                    <span className="progress-percent">65%</span>
-                  </div>
-                </div>
-                <div className="impact-content">
-                  <h4>CO₂ Offset</h4>
-                  <p className="impact-value">15 <span className="impact-unit">trees</span></p>
-                  <p className="impact-desc">Annual absorption equivalent</p>
-                  <div className="impact-comparison">
-                    <span className="comparison-arrow">↑</span>
-                    <span>+8% from last month</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="impact-card energy">
-                <div className="impact-visual">
-                  <div className="impact-icon-large">⚡</div>
-                  <div className="impact-progress">
-                    <svg viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="45" />
-                      <circle cx="50" cy="50" r="45" style={{strokeDashoffset: 25}} />
-                    </svg>
-                    <span className="progress-percent">85%</span>
-                  </div>
-                </div>
-                <div className="impact-content">
-                  <h4>Energy Saved</h4>
-                  <p className="impact-value">850 <span className="impact-unit">kWh</span></p>
-                  <p className="impact-desc">Powers 85 homes for 1 day</p>
-                  <div className="impact-comparison">
-                    <span className="comparison-arrow">↑</span>
-                    <span>+22% from last month</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="impact-card waste">
-                <div className="impact-visual">
-                  <div className="impact-icon-large">♻️</div>
-                  <div className="impact-progress">
-                    <svg viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="45" />
-                      <circle cx="50" cy="50" r="45" style={{strokeDashoffset: 15}} />
-                    </svg>
-                    <span className="progress-percent">92%</span>
-                  </div>
-                </div>
-                <div className="impact-content">
-                  <h4>Waste Diverted</h4>
-                  <p className="impact-value">95% <span className="impact-unit">reduction</span></p>
-                  <p className="impact-desc">From landfill destination</p>
-                  <div className="impact-comparison">
-                    <span className="comparison-arrow">↑</span>
-                    <span>+5% from last month</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
 
       {/* Food Rescue Tab */}
       {activeTab === 'rescue' && (
