@@ -5,7 +5,7 @@ import HomePage from './pages/HomePage';
 import RatingsPage from './pages/RatingsPage';
 import MenuPage from './pages/MenuPage';
 import VolunteerPage from './pages/VolunteerPage';
-import AdminPage from './pages/AdminPage';
+import AdminDashboard from './pages/AdminDashboard';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/ratings" element={<RatingsPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/volunteer" element={<VolunteerPage />} />
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/menu" element={<MenuPage />} />  {/* <-- ADD THIS */}
         </Routes>
       </div>

@@ -9,7 +9,7 @@ function Header() {
       <div className="header-container">
         <div className="logo">
 	  <span className="logo-main">BiCo</span>
-	  <span className="logo-sub">Dining</span>
+	  <span className="logo-sub">Bites</span>
 	  </div>
 
         

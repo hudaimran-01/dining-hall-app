@@ -1,7 +1,7 @@
 /* Header Styles */
 .header {
-  background-color: #8B2E2E; /* deep dark red */
-  color: #f3dbb9; /* beige text for contrast */
+  background: linear-gradient(135deg, #8B2E2E 0%, #a8453f 100%);
+  color: #fae8d0;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
@@ -26,7 +26,7 @@
   text-decoration: none;
   font-size: 1.6rem;
   font-weight: bold;
-  color: #f3dbb9; /* beige logo text */
+  color: #fae8d0;
   transition: transform 0.2s;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .nav-link {
-  color: #f3dbb9;
+  color: #fae8d0;
   text-decoration: none;
   font-weight: 500;
   padding: 0.5rem 1rem;
@@ -56,7 +56,7 @@
 }
 
 .nav-link:hover {
-  background: rgba(255, 255, 255, 0.15); /* subtle highlight */
+  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px) scale(1.03);
 }
 
@@ -67,7 +67,7 @@
   left: 50%;
   width: 0;
   height: 2px;
-  background: #f3dbb9;
+  background: #fae8d0;
   transition: all 0.3s;
   transform: translateX(-50%);
 }
@@ -78,8 +78,8 @@
 
 /* Profile Icon */
 .profile-icon {
-  background: #f3dbb9; /* beige circle */
-  color: #8B2E2E; /* dark red icon */
+  background: #fae8d0;
+  color: #8B2E2E;
   width: 42px;
   height: 42px;
   border-radius: 50%;
@@ -96,9 +96,4 @@
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
-/* Body / Website Background */
-body {
-  background-color: #f3dbb9; /* beige background for website */
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-}
+/* Remove any body background here — handled in App.css */
