@@ -61,7 +61,13 @@ export default function HomePage() {
       <div className="dashboard-header">
         <div className="header-left">
           <div className="logo-section">
-            <div className="logo-icon">🍽️</div>
+            <div className="logo-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+                <path d="M7 2v20"/>
+                <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/>
+              </svg>
+            </div>
             <div>
               <h1 className="dashboard-title">Campus Dining Hub</h1>
               <p className="dashboard-subtitle">Bryn Mawr & Haverford Dining Services</p>
@@ -133,7 +139,12 @@ export default function HomePage() {
               <span className="stat-label">TOP RATED TODAY</span>
               <span className="stat-badge yellow">{topDishes[0].trend}</span>
             </div>
-            <div className="stat-number">{topDishes[0].rating}⭐</div>
+            <div className="stat-number">
+              {topDishes[0].rating}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: '4px', display: 'inline-block', verticalAlign: 'middle' }}>
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
             <div className="stat-description">{topDishes[0].name}</div>
             <div className="progress-bar">
               <div className="progress-fill yellow" style={{ width: '96%' }}></div>
@@ -231,7 +242,12 @@ export default function HomePage() {
                   <div className="dish-location">{dish.hall}</div>
                 </div>
                 <div className="dish-stats">
-                  <span className="dish-rating">⭐ {dish.rating}</span>
+                  <span className="dish-rating">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{ marginRight: '4px', display: 'inline-block', verticalAlign: 'middle' }}>
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    {dish.rating}
+                  </span>
                   <span className="dish-votes">{dish.votes} votes</span>
                 </div>
               </div>

@@ -42,13 +42,13 @@ body {
 .logo-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  color: white;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 .dashboard-title {
@@ -70,21 +70,21 @@ body {
 }
 
 .time-card {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   padding: 1.25rem 1.75rem;
   border-radius: 12px;
   text-align: center;
   color: white;
-  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 .meal-time-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   padding: 1.25rem 1.75rem;
   border-radius: 12px;
   text-align: center;
   color: white;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 .meal-display {
@@ -144,9 +144,9 @@ body {
 }
 
 .tab-button.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 /* Stats Grid */
@@ -183,11 +183,11 @@ body {
 }
 
 .stat-card.purple-border {
-  border-left-color: #8b5cf6;
+  border-left-color: #f97316;
 }
 
 .stat-card.orange-border {
-  border-left-color: #f97316;
+  border-left-color: #dc2626;
 }
 
 /* Stat Icon */
@@ -211,11 +211,11 @@ body {
 }
 
 .stat-icon.purple {
-  background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
 }
 
 .stat-icon.orange {
-  background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+  background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
 }
 
 /* Stat Content */
@@ -256,13 +256,13 @@ body {
 }
 
 .stat-badge.purple {
-  background: #ede9fe;
-  color: #5b21b6;
+  background: #fed7aa;
+  color: #9a3412;
 }
 
 .stat-badge.orange {
-  background: #fed7aa;
-  color: #9a3412;
+  background: #fecaca;
+  color: #991b1b;
 }
 
 .stat-number {
@@ -304,11 +304,11 @@ body {
 }
 
 .progress-fill.purple {
-  background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 100%);
+  background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
 }
 
 .progress-fill.orange {
-  background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+  background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
 }
 
 .progress-label {
@@ -486,7 +486,7 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   color: white;
   display: flex;
   align-items: center;
@@ -523,6 +523,8 @@ body {
   font-size: 1rem;
   font-weight: 700;
   color: #f59e0b;
+  display: flex;
+  align-items: center;
 }
 
 .dish-votes {
@@ -548,15 +550,15 @@ body {
 }
 
 .event-card:hover {
-  border-color: #667eea;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  border-color: #f97316;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
   transform: translateY(-2px);
 }
 
 .event-date {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
