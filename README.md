@@ -8,6 +8,12 @@ Built for Protothon 2026.
 
 ---
 
+Recognition: 
+
+Winner Tri-co Protothon 2026
+
+----
+
 ## The Problem
 
 Students at Bryn Mawr and Haverford have no easy way to know what's actually good on the menu today, how long the dining hall line is, or how much food gets wasted each week. Dining decisions are made blind, and a lot of good food ends up in the trash.
