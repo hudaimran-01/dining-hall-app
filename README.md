@@ -1,4 +1,4 @@
-# BiCo Bites
+# BiCo Bites: https://bi-co-bites.vercel.app/
 
 Your live guide to dining at Bryn Mawr & Haverford
 
