@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# BiCo Bites
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Your live guide to dining at Bryn Mawr & Haverford
 
-## Available Scripts
+A student-built web app that brings transparency and community to the Bi-Co dining experience. Students can rate dishes, check line status, discover events, and reduce food waste, all in one place.
 
-In the project directory, you can run:
+Built for Protothon 2026.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## The Problem
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Students at Bryn Mawr and Haverford have no easy way to know what's actually good on the menu today, how long the dining hall line is, or how much food gets wasted each week. Dining decisions are made blind, and a lot of good food ends up in the trash.
 
-### `npm test`
+## The Solution
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+BiCo Bites gives students a real-time hub to:
+- Rate and review dishes across New Dorm, Erdman, and Haverford Dining Center
+- Check current line status before heading to the dining hall
+- Vote in bi-weekly polls on what dishes should be added
+- See top-rated (and worst-rated) dishes
+- Discover dining events and international bar features
+- Track and reduce food waste through an admin dashboard
+- Sign up to volunteer, delivering excess food to local shelters
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+| Layer | Technology |
+|---|---|
+| Frontend | React + React Router |
+| Styling | Custom CSS |
+| Backend | Firebase (Firestore + Authentication) |
+| Demo Data | Mock data (`mockData.js`) for reliable presentation |
+| Hosting | Firebase Hosting |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Pages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Home** – line status, top dishes, upcoming events
+2. **Menu** – browse dishes by dining hall, meal, allergens, and sustainability info
+3. **Ratings** – rate dishes, vote in polls, see top rated and lowest rated dishes
+4. **Volunteer** – sign up for shelter food deliveries
+5. **Admin Dashboard** – waste tracking and menu management
+6. **Login** – sign in / sign up
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# Clone the repo
+git clone https://github.com/YOUR-USERNAME/dining-hall-app.git
+cd dining-hall-app
 
-## Learn More
+# Install dependencies
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Run locally
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+App runs at `http://localhost:3000`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Project Structure
 
-### Analyzing the Bundle Size
+```
+src/
+├── firebase.js          # Firebase config
+├── mockData.js          # Demo data (menus, ratings, events, etc.)
+├── services/             # Firebase backend functions
+│   ├── authService.js
+│   ├── menuService.js
+│   ├── ratingsService.js
+│   ├── wasteService.js
+│   ├── eventsService.js
+│   ├── pollService.js
+│   └── volunteerService.js
+├── pages/                # Main app pages
+│   ├── HomePage.js
+│   ├── MenuPage.js
+│   ├── RatingsPage.js
+│   ├── VolunteerPage.js
+│   └── AdminPage.js
+├── components/           # Shared UI components
+└── App.js                # Routing
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Team
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Huda Imran
+- Birwa Tahir
+- Yumna Fatima Dar
+- Aiman Fatima
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Steps
 
-### Deployment
+- Full Firebase integration for live data across all pages
+- Push notifications for line status and events
+- Social sharing of favorite dishes
+- Partnership with dining services for real waste-tracking data
+- Expansion to other colleges and universities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
